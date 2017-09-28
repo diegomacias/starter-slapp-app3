@@ -142,19 +142,35 @@ slapp
       }
    
   })
+
+
+  .route('clima', (msg, state) => {
+
+   var mensaje = msg.body.event.text ;
+   
+        msg.say(`
+HORA  DESC. ATMOSFÉRICA TEMP. VIENTO  MEDIO RACHAS  LLUVIA  HR  PRESIÓN \n
+15h Cielos Nubosos  25°   12 km/h 32 km/h 0 mm        47% 1011hPa\n
+16h Cielos Nubosos  25°   11 km/h 32 km/h 0 mm        46% 1009hPa\n
+17h Cielos Nubosos  24°   9 km/h  30 km/h 0 mm        50% 1010hPa\n
+18h Cielos Nubosos  23°   8 km/h  28 km/h 0 mm        58% 1011hPa\n
+20h Lluvia débil    20°   7 km/h  23 km/h 1.5 mm      75% 1013hPa\n
+23h Lluvia débil    17°   10 km/h 18 km/h 0.3 mm      92% 1015hPa`)
+     
+   
+  })
   .route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
 
    var mensaje = msg.body.event.text ;
 
    if (mensaje == "clima") {
         msg.say("Que quieres saber del clima, lo se todo !")
-
+    .route('clima', state);
 
    }
 
     // user may not have typed text as their next action, ask again and re-route
-        msg.say("Necesito que me digas Algo")
-        .route('hablar-de-otra-cosa-en-especifico', state)
+        
     }
 
     // add their response to state
