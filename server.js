@@ -112,7 +112,8 @@ slapp
 
    var mensaje = msg.body.event.text ;
     // user may not have typed text as their next action, ask again and re-route
-    if (!text) {
+           msg.say("Respuesta Del Usuario:" + mensaje);
+
       //return msg
         if (mensaje == "Si" || mensaje == "si" || mensaje == "No" || mensaje == "yes" || mensaje == "no"){
 
@@ -136,7 +137,7 @@ slapp
                 ]
               }]});
         
-              }
+              
       }
 
 
