@@ -99,7 +99,7 @@ slapp.action('yesno_callback', 'answer', (msg, value) => {
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp
-  .message('^(accidentes|choques|accident)$', ['mention', 'direct_message'], (msg, text) => {
+  .message('^(accidentes|choques|accident)$', ['criteria', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
       msg.say(`Quieres Saber los accidentes que tiene AGS el dia de hoy ?`)
@@ -108,11 +108,9 @@ slapp
   })
  
   .route('respuesta-accidentes', (msg, state) => {
-    var text = (msg.body.event && msg.body.event.text) || ''
 
    var mensaje = msg.body.event.text ;
     // user may not have typed text as their next action, ask again and re-route
-           msg.say("Respuesta Del Usuario:" + mensaje);
 
       //return msg
         if (mensaje == "Si" || mensaje == "si" || mensaje == "No" || mensaje == "yes" || mensaje == "no"){
@@ -120,12 +118,17 @@ slapp
       if (mensaje == "si") {
         msg.say(`los accidentes han sido muy Desastrosos por la concurrencia de lluvia en los ultimos 3 dias en el estado de aguascalientes Quieres hablar de otro tema en especifico ?`)
         .route('hablar-de-otra-cosa-en-especifico', state)
+        else if(){
+        msg.say(`Entonces de que quieres hablar ?`)
+
+
+        
          }else{
 
             msg.say("No te entendi, Disculpa Soy muy torpe \n Selecciona para entender mejor")
               
             msg.say({
-            text: '',
+            text: 'Quieres Saber los accidentes que tiene AGS ?',
             attachments: [
               {
                 text: 'Quieres Saber los accidentes que tiene AGS ?',
@@ -136,13 +139,10 @@ slapp
                   { name: 'answer', text: 'No', type: 'button', value: 'no' }
                 ]
               }]});
+        }
         
               
       }
-
-
-        msg.say("Whoops, I'm still waiting to hear how you're doing.")
-        msg.say('How are you?')
         .route('respuesta-accidentes', state)
     }
 
@@ -152,12 +152,17 @@ slapp
    
   })
   .route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
-    var text = (msg.body.event && msg.body.event.text) || ''
+
+   var mensaje = msg.body.event.text ;
+
+   if (mensaje == "clima") {
+        msg.say("Que quieres saber del clima, lo se todo !")
+
+
+   }
 
     // user may not have typed text as their next action, ask again and re-route
-    if (!text) {
-      return msg
-        .say("Necesito que me digas Algo")
+        msg.say("Necesito que me digas Algo")
         .route('hablar-de-otra-cosa-en-especifico', state)
     }
 
