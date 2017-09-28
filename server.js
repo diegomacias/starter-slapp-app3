@@ -140,12 +140,6 @@ slapp
               }]});
         }
       }
-       
-    
-
-    // add their response to state
-    state.status = text
-
    
   })
   .route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
