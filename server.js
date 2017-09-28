@@ -141,7 +141,7 @@ slapp
         }
       }
        
-    }
+    
 
     // add their response to state
     state.status = text
