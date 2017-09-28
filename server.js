@@ -96,7 +96,7 @@ slapp
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp
-  .message('^(accidentes|choques|accident)$', ['criteria', 'direct_message'], (msg, text) => {
+  .message('^(accidentes|choques|accident)$', ['mention', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
       msg.say(`Quieres Saber los accidentes que tiene AGS el dia de hoy ?`)
@@ -110,44 +110,17 @@ slapp
     // user may not have typed text as their next action, ask again and re-route
     if (!text) {
       return msg
-        if (msg == "Si" || msg == "No" || msg == "yes" || msg == "no"){
-
-      if (msg == "si") {
-        .say(`los accidentes han sido muy Desastrosos por la concurrencia de lluvia en los ultimos 3 dias en el estado de aguascalientes Quieres hablar de otro tema en especifico ?`)
-        .route('hablar-de-otra-cosa-en-especifico', state)
-         }else(){
-
-
-      }else{
-
-            .say("No te entendi, Disculpa Soy muy torpe \n Selecciona para entender mejor")
-              
-            msg.say({
-            text: '',
-            attachments: [
-              {
-                text: 'Quieres Saber los accidentes que tiene AGS ?',
-                fallback: 'Quieres Saber los accidentes que tiene AGS ? ',
-                callback_id: 'doit_confirm_callback',
-                actions: [
-                  { name: 'answer', text: 'Si', type: 'button', value: 'si' },
-                  { name: 'answer', text: 'No', type: 'button', value: 'no' }
-                ]
-              }]});
-        
-              }
-      }
-
-
         .say("Whoops, I'm still waiting to hear how you're doing.")
         .say('How are you?')
-        .route('respuesta-accidentes', state)
+        .route('how-are-you', state)
     }
 
     // add their response to state
     state.status = text
 
     msg
+      .say(`los accidentes han sido muy Desastrosos por la concurrencia de lluvia en los ultimos 3 dias en el estado de aguascalientes\n Quieres hablar de otro tema en especifico ?`)
+      .route('hablar-de-otra-cosa-en-especifico', state)
   })
   .route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
     var text = (msg.body.event && msg.body.event.text) || ''
@@ -155,7 +128,7 @@ slapp
     // user may not have typed text as their next action, ask again and re-route
     if (!text) {
       return msg
-        .say("Necesito que me digas Algo")
+        .say("I'm eagerly awaiting to hear your favorite color.")
         .route('hablar-de-otra-cosa-en-especifico', state)
     }
 
