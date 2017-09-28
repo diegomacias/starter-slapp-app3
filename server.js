@@ -117,9 +117,6 @@ slapp
         .route('hablar-de-otra-cosa-en-especifico', state)
          }else{
 
-
-      }else{
-
             msg.say("No te entendi, Disculpa Soy muy torpe \n Selecciona para entender mejor")
               
             msg.say({
