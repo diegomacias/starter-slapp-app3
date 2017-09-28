@@ -115,7 +115,7 @@ slapp
       if (msg == "si") {
         msg.say(`los accidentes han sido muy Desastrosos por la concurrencia de lluvia en los ultimos 3 dias en el estado de aguascalientes Quieres hablar de otro tema en especifico ?`)
         .route('hablar-de-otra-cosa-en-especifico', state)
-         }else(){
+         }else{
 
 
       }else{
