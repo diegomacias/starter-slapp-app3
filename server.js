@@ -79,6 +79,62 @@ slapp
     // At this point, since we don't route anywhere, the "conversation" is over
   })
 
+
+//STK codigo para iniciar el flujo de Choques, accidentes o Clima
+
+
+
+// "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
+slapp
+  .message('^(accidentes|choques|accident)$', ['mention', 'direct_message'], (msg, text) => {
+    
+    //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
+      msg.say(`Quieres Saber los accidentes que tiene AGS el dia de hoy ?`)
+      // sends next event from user to this route, passing along state
+      .route('respuesta-accidentes', { greeting: text })
+  })
+ 
+  .route('respuesta-accidentes', (msg, state) => {
+    var text = (msg.body.event && msg.body.event.text) || ''
+
+    // user may not have typed text as their next action, ask again and re-route
+    if (!text) {
+      return msg
+        .say("Whoops, I'm still waiting to hear how you're doing.")
+        .say('How are you?')
+        .route('how-are-you', state)
+    }
+
+    // add their response to state
+    state.status = text
+
+    msg
+      .say(`los accidentes han sido muy Desastrosos por la concurrencia de lluvia en los ultimos 3 dias en el estado de aguascalientes\n Quieres hablar de otro tema en especifico ?`)
+      .route('hablar-de-otra-cosa-en-especifico', state)
+  })
+  .route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
+    var text = (msg.body.event && msg.body.event.text) || ''
+
+    // user may not have typed text as their next action, ask again and re-route
+    if (!text) {
+      return msg
+        .say("I'm eagerly awaiting to hear your favorite color.")
+        .route('hablar-de-otra-cosa-en-especifico', state)
+    }
+
+    // add their response to state
+    state.color = text
+
+    msg
+      .say('Gracias por platicar Conmigo, Ultimamente me siento solo, esta es nuestra platica:')
+      .say(`Here's what you've told me so far: \`\`\`${JSON.stringify(state)}\`\`\``)
+    // At this point, since we don't route anywhere, the "conversation" is over
+  })
+
+
+
+
+
 // Can use a regex as well
 slapp.message(/^(thanks|thank you)/i, ['mention', 'direct_message'], (msg) => {
   // You can provide a list of responses, and a random one will be chosen
