@@ -96,7 +96,7 @@ slapp
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp
-  .message('^(accidentes|choques|accident)$', ['criteria', 'direct_message'], (msg, text) => {
+  .message('^(accidentes|choques|accident)$', ['mention', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
       msg.say(`Quieres Saber los accidentes que tiene AGS el dia de hoy ?`)
