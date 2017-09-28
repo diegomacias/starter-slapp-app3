@@ -140,7 +140,7 @@ slapp
               }]});
         }
       }
-        .route('respuesta-accidentes', state)
+       
     }
 
     // add their response to state
