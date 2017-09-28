@@ -164,13 +164,13 @@ slapp
     }
 
     // add their response to state
-    state.color = text
+  /*  state.color = text
 
     msg
       .say('Gracias por platicar Conmigo, Ultimamente me siento solo, esta es nuestra platica:')
       .say(`Here's what you've told me so far: \`\`\`${JSON.stringify(state)}\`\`\``)
-    // At this point, since we don't route anywhere, the "conversation" is over
-  })
+    // At this point, since we don't route anywhere, the "conversation" is over*/
+  )
 
 
 
