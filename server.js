@@ -92,6 +92,9 @@ slapp
 
 //STK codigo para iniciar el flujo de Choques, accidentes o Clima
 
+slapp.action('yesno_callback', 'answer', (msg, value) => {
+  msg.respond(msg.body.response_url, `${value} is a good choice!`)
+})
 
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
@@ -107,6 +110,7 @@ slapp
   .route('respuesta-accidentes', (msg, state) => {
     var text = (msg.body.event && msg.body.event.text) || ''
 
+  msg.say(msg.body + "/ " + msg.body.event.text + "//" );
     // user may not have typed text as their next action, ask again and re-route
     if (!text) {
       return msg
@@ -125,7 +129,7 @@ slapp
               {
                 text: 'Quieres Saber los accidentes que tiene AGS ?',
                 fallback: 'Quieres Saber los accidentes que tiene AGS ? ',
-                callback_id: 'doit_confirm_callback',
+                callback_id: 'yesno_callback',
                 actions: [
                   { name: 'answer', text: 'Si', type: 'button', value: 'si' },
                   { name: 'answer', text: 'No', type: 'button', value: 'no' }
