@@ -138,23 +138,32 @@ slapp.message('^(accidentes|choques|accident)$', ['direct_mention', 'direct_mess
 
 
   //STK codigo para iniciar el flujo de Choques, accidentes o Clima
-slapp.message('^(diego|diego|diego)$', ['direct_mention', 'direct_message'], (msg, text) => {
-    
-    //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
-      msg.say(`Quieres Saber los Diego que tiene AGS el dia de hoy ?`)
-      // sends next event from user to this route, passing along state
-     
-  })
+
 
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
-      msg.say("Que quieres saber del clima, lo se todo y si no me lo inventare !").route('clima', state);
+      msg.say("Que quieres saber del clima, lo se todo y si no me lo inventare !")
+      .route('clima', state);
       // sends next event from user to this route, passing along state
-  })
- .route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
+  }).route('clima', (msg, state) => {
+
+   var mensaje = msg.body.event.text ;
+   
+        msg.say(`
+              HORA     DESC.ATMOSFÉRICA    TEMP.        VIENTO    MEDIO RACHAS LLUVIA    HR  PRESIÓN \n
+              15h    Cielos Nubosos  25°   12 km/h     32 km/h 0     mm        47%        1011hPa\n
+              16h    Cielos Nubosos  25°   11 km/h     32 km/h 0     mm        46%        1009hPa\n
+              17h    Cielos Nubosos  24°   9 km/h      30 km/h 0     mm        50%        1010hPa\n
+              18h    Cielos Nubosos  23°   8 km/h      28 km/h 0     mm        58%        1011hPa\n
+              20h    Lluvia débil    20°   7 km/h      23 km/h 1.5   mm        75%        1013hPa\n
+              23h    Lluvia débil    17°   10 km/h     18 km/h 0.3   mm        92%        1015hPa`)
+
+    msg.say("creo que me pase pero te fue util esta informacion ?")
+
+  }).route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
 
    var mensaje = msg.body.event.text;
 
