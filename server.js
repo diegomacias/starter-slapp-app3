@@ -243,7 +243,7 @@ slapp
 
    }else if(mensaje == "choques" || mensaje == "accidentes"){
 
-          .route('respuesta-accidentes')
+          .route('respuesta-accidentes',state);
 
 
    }else{
