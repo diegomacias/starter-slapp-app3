@@ -87,14 +87,13 @@ slapp
   })
 
 
-//STK codigo para iniciar el flujo de Choques, accidentes o Clima
 
 slapp.action('yesno_callback', 'answer', (msg, value) => {
   msg.respond(msg.body.response_url, `${value} Es una buena eleccion!`)
 })
 
 
-// "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
+//STK codigo para iniciar el flujo de Choques, accidentes o Clima
 slapp.message('^(accidentes|choques|accident)$', ['direct_mention', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
@@ -143,8 +142,7 @@ slapp.message('^(accidentes|choques|accident)$', ['direct_mention', 'direct_mess
 
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
-slapp
-  .message('^(clima|ambiente|clim)$', ['direct_mention', 'direct_message'], (msg, text) => {
+slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
       msg.say("Que quieres saber del clima, lo se todo y si no me lo inventare !")
