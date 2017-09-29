@@ -198,7 +198,7 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
               20h    Lluvia débil    20°   7 km/h      23 km/h 1.5   mm        75%        1013hPa\n
               23h    Lluvia débil    17°   10 km/h     18 km/h 0.3   mm        92%        1015hPa`)
 
-    msg.say("creo que me pase pero te fue util esta informacion ?").route('respuesta-clima-si-no',state);
+    msg.say("creo que me pase pero te fue util esta informacion ?").route('respuesta-clima-si-no',{ greeting: text });
 
   }).route('respuesta-clima-si-no', (msg, state) => {
 
