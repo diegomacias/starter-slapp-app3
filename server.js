@@ -205,7 +205,7 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
 
  if (mensaje == "si") {
         msg.say("Gracias!, Entonces Este POC sera un exito")
-        msg.say("Quieres hablar de accidentes ?").route('respuesta-accidentes',{ greeting: text })
+        msg.say("Quieres hablar de accidentes ?").route('respuesta-accidentes',state)
    }  
 
     }
