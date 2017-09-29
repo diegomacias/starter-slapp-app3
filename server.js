@@ -50,10 +50,15 @@ slapp
       .route('how-are-you', { greeting: text })
   })
   .route('how-are-you', (msg, state) => {
-    var text = (msg.body.event && msg.body.event.text) || ''
+       var mensaje = msg.body.event.text ;
+
 
     // user may not have typed text as their next action, ask again and re-route
-    if (!text) {
+    if (mensaje == "si") {
+          
+      .say(`Me da mucho gusto, De que quieres Hablar ?`)
+
+    }
       return msg
         .say("Whoops, Estoy esperando que me indiques algo :)")
         .say('Como estas ?')
@@ -63,9 +68,7 @@ slapp
     // add their response to state
     state.status = text
 
-    msg
-      .say(`Ok entonces. Cual es tu color favorito?`)
-      .route('color', state)
+   
   })
   .route('color', (msg, state) => {
     var text = (msg.body.event && msg.body.event.text) || ''
@@ -179,7 +182,7 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
 
    }
 
-   if(mensaje != "choques" || mensaje != "clima" || mensaje != "accidentes"){
+   if(mensaje != "choques" && mensaje != "clima" && mensaje != "accidentes"){
 
        msg.say("Mis Algoritmos No pueden hablar de " + mensaje + ":/")
    }
