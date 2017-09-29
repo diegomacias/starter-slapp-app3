@@ -163,8 +163,7 @@ slapp
    var mensaje = msg.body.event.text;
 
    if (mensaje == "clima") {
-        msg.say("Que quieres saber del clima, lo se todo !")
-    .route('clima', state);
+        msg.say("Que quieres saber del clima, lo se todo !").route('clima', state);
 
    }
 
@@ -178,7 +177,7 @@ slapp
        msg.say("Mis Algoritmos No pueden hablar de " + mensaje + ":/")
    }
         
-    });
+    })
 
   .route('clima', (msg, state) => {
 
