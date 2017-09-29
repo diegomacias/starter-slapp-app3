@@ -146,9 +146,9 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
       msg.say("Que quieres saber del clima, lo se todo y si no me lo inventare !")
-      .route('clima', state);
+      .route('clima-route',{ greeting: text });
       // sends next event from user to this route, passing along state
-  }).route('clima', (msg, state) => {
+  }).route('clima-route', (msg, state) => {
 
    var mensaje = msg.body.event.text ;
    
