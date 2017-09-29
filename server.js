@@ -162,7 +162,7 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
    var mensaje = msg.body.event.text;
 
    if (mensaje == "clima") {
-        msg.say("Que quieres saber del clima, lo se todo !").route('clima', state);
+        msg.say("Que quieres saber del clima, lo se todo !").route('clima-route', state);
 
    }
 
