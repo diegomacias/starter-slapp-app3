@@ -170,9 +170,7 @@ slapp
 
     if(mensaje == "choques" || mensaje == "accidentes"){
 
-          msg.say("Hablaremos de choques Again ?");
-          
-      .route('respuesta-accidentes', { greeting: text })
+          msg.say("Hablaremos de choques Again ?").route('respuesta-accidentes', { greeting: text })
 
 
    }else{
