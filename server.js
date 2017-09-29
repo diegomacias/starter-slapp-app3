@@ -56,13 +56,9 @@ slapp
     // user may not have typed text as their next action, ask again and re-route
     if (mensaje == "si") {
           
-      .say(`Me da mucho gusto, De que quieres Hablar ?`)
+     msg.say(`Me da mucho gusto, De que quieres Hablar ?`)
 
     }
-      return msg
-        .say("Whoops, Estoy esperando que me indiques algo :)")
-        .say('Como estas ?')
-        .route('how-are-you', state)
     }
 
     // add their response to state
