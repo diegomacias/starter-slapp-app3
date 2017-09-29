@@ -221,7 +221,7 @@ HORA     DESC.ATMOSFÉRICA    TEMP.        VIENTO    MEDIO RACHAS LLUVIA    HR  
 
  if (mensaje == "si") {
         msg.say("Gracias!, Entonces Este POC sera un exito")
-        msg.say("Quieres hablar de accidentes ?");
+        msg.say("Quieres hablar de accidentes ?")
 
       .route('respuesta-accidentes', { greeting: text })
    }  
