@@ -172,7 +172,7 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
    if(mensaje != "choques" && mensaje != "clima" && mensaje != "accidentes"){
 
        msg.say("Mis Algoritmos No pueden hablar de " + mensaje + ":/")
-       msg.say("De que quieres hablar ?" + mensaje + ":/")
+       msg.say("De que quieres hablar ?")
        .route('hablar-de-otra-cosa-en-especifico', state)
 
    }
