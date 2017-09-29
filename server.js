@@ -243,6 +243,7 @@ slapp
 
    }else if(mensaje == "choques" || mensaje == "accidentes"){
 
+          msg.say("Hablaremos de choques Again ?")
           .route('respuesta-accidentes',state);
 
 
