@@ -50,12 +50,8 @@ slapp
       .route('how-are-you', { greeting: text })
   })
   .route('how-are-you', (msg, state) => {
-       var mensaje = msg.body.event.text ;
-
-
+       var mensaje = msg.body.event.text;
     // user may not have typed text as their next action, ask again and re-route
-   
-          
      msg.say('Como no soy Humano no se cuando un humano esta '+ mensaje + ', \n entonces de que quieres hablar ?')
 
   
@@ -88,7 +84,7 @@ slapp.action('yesno_callback', 'answer', (msg, value) => {
 
 
 //STK codigo para iniciar el flujo de Choques, accidentes o Clima
-slapp.message('^(accidentes|choques|accident)$', ['criteria', 'direct_message'], (msg, text) => {
+slapp.message('^(accidentes|choques|accident)$', ['criteria', 'criteria'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
       msg.say(`Quieres Saber los accidentes que tiene AGS el dia de hoy ?`)
