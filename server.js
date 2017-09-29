@@ -151,8 +151,7 @@ slapp.message('^(diego|diego|diego)$', ['direct_mention', 'direct_message'], (ms
 slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
-      msg.say("Que quieres saber del clima, lo se todo y si no me lo inventare !")
-    .route('clima', state);
+      msg.say("Que quieres saber del clima, lo se todo y si no me lo inventare !").route('clima', state);
       // sends next event from user to this route, passing along state
   })
  .route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
