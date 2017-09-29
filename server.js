@@ -84,7 +84,7 @@ slapp.action('yesno_callback', 'answer', (msg, value) => {
 
 
 //STK codigo para iniciar el flujo de Choques, accidentes o Clima
-slapp.message('^(accidentes|choques|accident)$', ['criteria', 'criteria'], (msg, text) => {
+slapp.message('^(accidentes|choques|accident)$', ['criteria', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
       msg.say(`Quieres Saber los accidentes que tiene AGS el dia de hoy ?`)
@@ -172,6 +172,9 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
    if(mensaje != "choques" && mensaje != "clima" && mensaje != "accidentes"){
 
        msg.say("Mis Algoritmos No pueden hablar de " + mensaje + ":/")
+       msg.say("De que quieres hablar ?" + mensaje + ":/")
+       .route('hablar-de-otra-cosa-en-especifico', state)
+
    }
         
     })
