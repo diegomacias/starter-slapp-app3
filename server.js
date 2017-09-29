@@ -208,7 +208,7 @@ HORA     DESC.ATMOSFÉRICA    TEMP.        VIENTO    MEDIO RACHAS LLUVIA    HR  
 
 
    }        
-    }
+    })
 
     .route('respuesta-clima-si-no', (msg, state) => {
 
