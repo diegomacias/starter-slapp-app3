@@ -235,16 +235,19 @@ slapp
   })
 .route('hablar-de-otra-cosa-en-especifico', (msg, state) => {
 
-   var mensaje = msg.body.event.text ;
+   var mensaje = msg.body.event.text;
 
    if (mensaje == "clima") {
         msg.say("Que quieres saber del clima, lo se todo !")
     .route('clima', state);
 
-   }else if(mensaje == "choques" || mensaje == "accidentes"){
+   }
+
+    if(mensaje == "choques" || mensaje == "accidentes"){
 
           msg.say("Hablaremos de choques Again ?");
           
+      .route('respuesta-accidentes', { greeting: text })
 
 
    }else{
@@ -252,7 +255,7 @@ slapp
        msg.say("Mis Algoritmos No pueden hablar de " + mensaje + ":/")
    }
         
-    }
+    });
 
   .route('clima', (msg, state) => {
 
