@@ -46,9 +46,9 @@ slapp.message('help', ['mention', 'direct_message'], (msg) => {
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp
-  .message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text) => {
+  .message('^(hola|Hola|hey)$', ['direct_mention', 'direct_message'], (msg, text) => {
     msg
-      .say(`${text}, how are you?`)
+      .say(`${text}, Como estas ?`)
       // sends next event from user to this route, passing along state
       .route('how-are-you', { greeting: text })
   })
@@ -58,8 +58,8 @@ slapp
     // user may not have typed text as their next action, ask again and re-route
     if (!text) {
       return msg
-        .say("Whoops, I'm still waiting to hear how you're doing.")
-        .say('How are you?')
+        .say("Whoops, Estoy esperando que me indiques algo :)")
+        .say('Como estas ?')
         .route('how-are-you', state)
     }
 
@@ -67,7 +67,7 @@ slapp
     state.status = text
 
     msg
-      .say(`Ok then. What's your favorite color?`)
+      .say(`Ok entonces. Cual es tu color favorito?`)
       .route('color', state)
   })
   .route('color', (msg, state) => {
@@ -76,7 +76,7 @@ slapp
     // user may not have typed text as their next action, ask again and re-route
     if (!text) {
       return msg
-        .say("I'm eagerly awaiting to hear your favorite color.")
+        .say("Estoy esperando que me digas tu coLOR favorito")
         .route('color', state)
     }
 
@@ -84,8 +84,8 @@ slapp
     state.color = text
 
     msg
-      .say('Thanks for sharing.')
-      .say(`Here's what you've told me so far: \`\`\`${JSON.stringify(state)}\`\`\``)
+      .say('Gracias por usarme')
+      .say(`Esto es lo que me dijiste a lo largo de la conversacion: \`\`\`${JSON.stringify(state)}\`\`\``)
     // At this point, since we don't route anywhere, the "conversation" is over
   })
 
@@ -93,13 +93,13 @@ slapp
 //STK codigo para iniciar el flujo de Choques, accidentes o Clima
 
 slapp.action('yesno_callback', 'answer', (msg, value) => {
-  msg.respond(msg.body.response_url, `${value} is a good choice!`)
+  msg.respond(msg.body.response_url, `${value} Es una buena eleccion!`)
 })
 
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp
-  .message('^(accidentes|choques|accident)$', ['criteria', 'direct_message'], (msg, text) => {
+  .message('^(accidentes|choques|accident)$', ['direct_mention', 'direct_message'], (msg, text) => {
     
     //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
       msg.say(`Quieres Saber los accidentes que tiene AGS el dia de hoy ?`)
@@ -156,6 +156,9 @@ HORA  DESC. ATMOSFÉRICA TEMP. VIENTO  MEDIO RACHAS  LLUVIA  HR  PRESIÓN \n
 18h Cielos Nubosos  23°   8 km/h  28 km/h 0 mm        58% 1011hPa\n
 20h Lluvia débil    20°   7 km/h  23 km/h 1.5 mm      75% 1013hPa\n
 23h Lluvia débil    17°   10 km/h 18 km/h 0.3 mm      92% 1015hPa`)
+
+    msg.say("creoq ue me pase pero te fue util esta informacion ?");
+
      
    
   })
