@@ -54,11 +54,11 @@ slapp
 
 
     // user may not have typed text as their next action, ask again and re-route
-    if (mensaje == "bien") {
+   
           
      msg.say('Como no soy Humano no se cuando un humano esta '+ mensaje + ', \n entonces de que quieres hablar ?')
 
-    }
+  
    
   })
   .route('color', (msg, state) => {
