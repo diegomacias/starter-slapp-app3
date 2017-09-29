@@ -59,11 +59,6 @@ slapp
      msg.say(`Me da mucho gusto, De que quieres Hablar ?`)
 
     }
-    }
-
-    // add their response to state
-    state.status = text
-
    
   })
   .route('color', (msg, state) => {
