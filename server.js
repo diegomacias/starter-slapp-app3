@@ -103,7 +103,6 @@ slapp.message('^(accidentes|choques|accident)$', ['direct_mention', 'direct_mess
   })
  
   .route('respuesta-accidentes', (msg, state) => {
-
    var mensaje = msg.body.event.text ;
     // user may not have typed text as their next action, ask again and re-route
 
@@ -138,7 +137,14 @@ slapp.message('^(accidentes|choques|accident)$', ['direct_mention', 'direct_mess
   })
 
 
-  
+  //STK codigo para iniciar el flujo de Choques, accidentes o Clima
+slapp.message('^(diego|diego|diego)$', ['direct_mention', 'direct_message'], (msg, text) => {
+    
+    //msg.say(`${text}, how are you?`) //aqui toma una variable y la adjunta a la respuesta
+      msg.say(`Quieres Saber los Diego que tiene AGS el dia de hoy ?`)
+      // sends next event from user to this route, passing along state
+     
+  })
 
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
