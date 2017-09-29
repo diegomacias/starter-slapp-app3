@@ -244,7 +244,8 @@ slapp
    }else if(mensaje == "choques" || mensaje == "accidentes"){
 
           msg.say("Hablaremos de choques Again ?");
-          .route('respuesta-accidentes',state);
+          
+      .route('respuesta-accidentes', { greeting: text })
 
 
    }else{
@@ -298,7 +299,7 @@ HORA     DESC.ATMOSFÉRICA    TEMP.        VIENTO    MEDIO RACHAS LLUVIA    HR  
         msg.say("Gracias!, Entonces Este POC sera un exito")
         msg.say("Quieres hablar de accidentes ?");
 
-          .route('respuesta-accidentes')
+      .route('respuesta-accidentes', { greeting: text })
    }  
 
     }
