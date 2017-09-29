@@ -177,7 +177,9 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
           msg.say("Hablaremos de choques Again ?").route('respuesta-accidentes', { greeting: text })
 
 
-   }else{
+   }
+
+   if(mensaje != "choques" || mensaje != "clima"){
 
        msg.say("Mis Algoritmos No pueden hablar de " + mensaje + ":/")
    }
@@ -198,10 +200,7 @@ slapp.message('^(clima|ambiente|Clima)$', ['direct_mention', 'direct_message'], 
 
     msg.say("creo que me pase pero te fue util esta informacion ?").route('respuesta-clima-si-no',{ greeting: text });
 
-  })
-
-
-    .route('respuesta-clima-si-no', (msg, state) => {
+  }).route('respuesta-clima-si-no', (msg, state) => {
 
    var mensaje = msg.body.event.text ;
 
